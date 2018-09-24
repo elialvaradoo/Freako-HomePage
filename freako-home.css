@@ -1,0 +1,288 @@
+
+.container {
+  position: relative;
+  max-width: 1920px;
+  margin: 0 auto;
+  height: -12vh;
+}
+
+/* Player */
+.player {
+  position: absolute;
+  left: 50%;
+  bottom: 15%;
+  transform: translateX(-60px);
+  height: 345px;
+  z-index: 1;
+}
+.player-head {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 60px;
+  border-radius: 25% 25% 30% 30%;
+  background-image: linear-gradient(#181009 0%, #302013 20%, #49311c 50%, #302013 80%, #181009 90%, #fcd3a4 91%, #fdc687 100%);
+}
+.player-head::before {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: 25px;
+  width: 4px;
+  height: 15px;
+  background-color: #fdc687;
+  border-radius: 30%;
+}
+.player-head::after {
+  content: '';
+  position: absolute;
+  right: -4px;
+  top: 25px;
+  width: 4px;
+  height: 15px;
+  background-color: #fdc687;
+  border-radius: 30%;
+}
+.player-torso {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  width: 85px;
+  height: 160px;
+  transform: translateX(-50%);
+  background-color: #026873;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.07) 50%, transparent 50%), linear-gradient(to right, rgba(255, 255, 255, 0.13) 50%, transparent 50%), linear-gradient(to right, transparent 50%, rgba(255, 255, 255, 0.17) 50%), linear-gradient(to right, transparent 50%, rgba(255, 255, 255, 0.19) 50%);
+  background-size: 13px, 29px, 37px, 53px;
+  border-radius: 25% 25% 10% 10%;
+}
+.player-arm {
+  position: absolute;
+  top: 70px;
+  width: 25px;
+  height: 130px;
+  background-color: #026873;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.07) 50%, transparent 50%), linear-gradient(to right, rgba(255, 255, 255, 0.13) 50%, transparent 50%), linear-gradient(transparent 0%, transparent 30%, #fcd3a4 31%, #fdc687 100%);
+  background-size: 13px, 29px, 37px, 53px;
+  border-radius: 100% 20% 30% 30%;
+  z-index: -1;
+}
+.player-arm.left {
+  left: -60px;
+}
+.player-arm.right {
+  right: -60px;
+  transform: rotateY(180deg);
+}
+.player-arm.right::after {
+  content: '';
+  position: absolute;
+  top: 118px;
+  left: 6px;
+  width: 8px;
+  height: 35px;
+  border-radius: 10%;
+  background-image: linear-gradient(#666 0%, #666 20%, #fcd3a4 21%, #fcd3a4 35%, #666 36%, #999 60%, #666 100%);
+}
+.player-leg {
+  position: absolute;
+  top: 220px;
+  width: 32px;
+  height: 100px;
+  border-radius: 0 0 5px 5px;
+  background-image: linear-gradient(#203470 0%, #2d499d 50%, #131f43 100%);
+}
+.player-leg::after {
+  content: '';
+  position: absolute;
+  top: 100px;
+  width: 32px;
+  height: 25px;
+  background-image: linear-gradient(#eee 0%, #666 79%, #eee 80%, #ddd 100%);
+}
+.player-leg.left {
+  left: -35px;
+}
+.player-foot.left {
+  left: -35px;
+}
+
+/* Player Stats */
+.stats {
+  font-family: 'Coda', Arial, sans-serif;
+  font-size: 45px;
+  font-size: calc(25px + 1vw);
+  font-weight: 800;
+  display: flex;
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  text-align: right;
+  text-shadow: 2px 2px #000;
+  z-index: 2;
+}
+.stats-player-info {
+  margin-right: 30px;
+}
+.stats-player-info * {
+  margin-bottom: 5px;
+}
+.stats-player-info-time {
+  color: #65c1f3;
+}
+.stats-player-info-money {
+  color: #00c788;
+}
+.stats-player-info-armor {
+  display: inline-block;
+  color: #b9b9b9;
+}
+.stats-player-info-health {
+  display: inline-block;
+  color: #ff9adf;
+}
+.stats-player-info-wanted-level {
+  display: flex;
+  justify-content: flex-end;
+}
+.stats-player-info-wanted-star {
+  margin-left: 5px;
+  color: #155b8b;
+}
+.stats-player-info-wanted-star.active {
+  color: #61c3f3;
+}
+.stats-player-weapon-icon {
+  position: relative;
+  width: 130px;
+  height: 140px;
+  width: calc(70px + 3vw);
+  height: calc(80px + 3vw);
+  border: 6px solid transparent;
+  border-radius: 20%;
+  background-image: linear-gradient(#f3e35a, #f3e35a), radial-gradient(circle at top left, #ff369b, #ff9cce);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  box-shadow: 0 3px #000 inset, 0 3px #000;
+}
+.stats-player-weapon-icon-gun {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70%;
+  height: 20%;
+  border-radius: 10% 10% 10% 0;
+  transform: translate(-50%, -100%) rotate(-15deg);
+  background-image: linear-gradient(#00ffff, #86b2d6);
+  box-shadow: 1px 3px #000;
+}
+.stats-player-weapon-icon-gun::before {
+  content: '';
+  position: absolute;
+  top: 95%;
+  left: 0;
+  width: 28%;
+  height: 120%;
+  border-radius: 0 0 10% 10%;
+  background-image: linear-gradient(#86b2d6, #ff69b4);
+  box-shadow: 1px 3px #000;
+}
+.stats-player-weapon-ammo {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: calc(20px + 0.5vw);
+  font-weight: 600;
+  color: #ff9adf;
+  text-align: center;
+  margin-top: 15px;
+}
+
+/* Map/Radar */
+.map {
+  position: absolute;
+  bottom: 50px;
+  left: 40px;
+  z-index: 2;
+  height: 200px;
+  width: 200px;
+  border: 6px solid transparent;
+  border-radius: 50%;
+  background-image: linear-gradient(#94bde0 0%, #94bde0 25%, #fffed4 26%, #fffed4 58%, #198451 59%, #198451 75%, #111 76%, #111 88%, #999 89%, #999 93%, #fdfdfd 94%, #fdfdfd 100%), radial-gradient(circle at top left, #ff369b, #ff9cce);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  box-shadow: 0 2px #000 inset, 0 2px #000;
+}
+.map::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 15px;
+  width: 15px;
+  background-color: #fff;
+  border: 2px solid #000;
+  border-radius: 0 80% 80% 80%;
+  transform: translate(-50%, -50%) scaleY(1.3) rotate(45deg);
+}
+.map-icon {
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  border-radius: 50%;
+  text-shadow: 1px 1px #000;
+}
+.map-icon-north {
+  left: -10px;
+  bottom: 55px;
+  width: 25px;
+  height: 25px;
+  background-color: #111;
+}
+.map-icon-mission {
+  bottom: -10px;
+  left: 50px;
+  width: 25px;
+  height: 30px;
+  border-radius: 20%;
+  background-color: #3a5eca;
+  opacity: 0.9;
+}
+
+/* Location */
+.location {
+  font-family: 'Helvetica';
+  font-weight: 700;
+  font-size: calc(2.5em + 1.5vw);
+  position: absolute;
+  right: 90px;
+  bottom: 90px;
+  color: #28a060;
+  transform: rotate(-10deg);
+  text-shadow: 2px 2px #000;
+  z-index: 2;
+}
+
+
+/* turns him into a choco man */
+
+.player-head {
+  background-image: linear-gradient(#000 0%, #000 20%, #000 65%, #49311c 80%, #49311c 90%, #7c501a 91%, #7c501a 100%);
+}
+
+.player-arm {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.07) 50%, transparent 50%), linear-gradient(to right, rgba(255, 255, 255, 0.13) 50%, transparent 50%), linear-gradient(transparent 0%, transparent 85%, #7c501a 31%, #7c501a 100%);
+}
+
+.player-head::before,
+.player-head::after {
+  background: #7c501a;
+}
+
+/* END */
+
+
+
+
