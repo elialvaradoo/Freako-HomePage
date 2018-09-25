@@ -283,6 +283,27 @@
 
 /* END */
 
+@media only screen and (max-width: 500px) {
+  .map {
+    width: 100px;
+    height: 100px;
+    bottom: 10px;
+    left: 10px;
+  }
+  
+  .location {
+    right: 10px;
+    bottom: 40px;
+  }
 
+  .stats-player-info-wanted-level {
+    display: none;
+  }
+  
+  .player {
+    left: 68%;
+    bottom: 0;
+  }
+}
 
 
